@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="btn btn-success mt-5" (click)="listar()"> Listar Aplicativos</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5">
+  
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="API">
+          <th mat-header-cell *matHeaderCellDef> API </th>
+          <td mat-cell *matCellDef="let element"> {{element.API}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Link">
+          <th mat-header-cell *matHeaderCellDef> Link </th>
+          <td mat-cell *matCellDef="let element"> {{element.Link}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Category">
+          <th mat-header-cell *matHeaderCellDef> Dominio </th>
+          <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Cors">
+          <th mat-header-cell *matHeaderCellDef> Dueño </th>
+          <td mat-cell *matCellDef="let element"> {{element.Cors}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  
+    </div>
+  </div>
+</div>
